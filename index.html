@@ -82,18 +82,17 @@
         // 1. Initialisiere die Karte und zentriere sie auf Altdorf, Uri
         const map = L.map('map', {
             zoomControl: false // Wir blenden die Standard-Zoom-Controls aus für einen cleaneren Look
-        }).setView([46.8817, 8.6441], 13);
+        }).setView([46.8804, 8.6444], 15);
 
         // Füge die Zoom-Controls unten rechts hinzu
         L.control.zoom({
             position: 'topright'
         }).addTo(map);
 
-        // 2. Lade die Kartenkacheln (OpenStreetMap)
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 20
+        // 2. Lade die Kartenkacheln (OpenStreetMap für detaillierte Gebäude und Straßen)
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
         }).addTo(map);
 
         // State-Variablen für die Route
